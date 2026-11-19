@@ -13,3 +13,27 @@ api.use(express.urlencoded({extend:true}))
 api.get("index",(req,res)=>{
     res.render(index.ejs)
 })
+
+//cadastrar um novo usuario
+
+api.post("/show", async (req, res)=>{
+    await collection.insertOne({
+        nome:req.body.nome,
+        email:req.body.email,
+    })
+    res.redirect("/show")
+})
+
+api.get("/show", async (req, res)=>{
+    const registro = await collection.find().toArray()
+    // visualizar o registro no Show.ejs
+    res.render("show.ejs", {registro})
+})
+
+api.post("/edit/:id", async (req, res)=>{
+    await collection.updateOne({_id: new ObjectId(req.params.id)}, 
+    {$set:{
+        nome:req.body.nome, 
+        email:req.body.email}})
+    res.redirect("/show")
+})
