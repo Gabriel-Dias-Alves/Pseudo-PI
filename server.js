@@ -7,11 +7,12 @@ const url = process.env.DATABASE_URL
 const ObjectId = require("mongodb").ObjectId
 const client = new MongoClient(url)
 let collection
+api.use(express.static('public'));
 
 api.set("view engine","ejs")
-api.use(express.urlencoded({extend:true}))
-api.get("index",(req,res)=>{
-    res.render(index.ejs)
+api.use(express.urlencoded({ extended: true }))
+api.get("/index",(req,res)=>{
+    res.render("index.ejs")
 })
 
 //cadastrar um novo usuario
@@ -25,15 +26,15 @@ api.post("/show", async (req, res)=>{
 })
 
 api.get("/show", async (req, res)=>{
-    const registro = await collection.find().toArray()
+    const cadastro = await collection.find().toArray()
     // visualizar o registro no Show.ejs
-    res.render("show.ejs", {registro})
+    res.render("show.ejs", {cadastro})
 })
 
 api.post("/edit/:id", async (req, res)=>{  //function do servidor
     await collection.updateOne({_id: new ObjectId(req.params.id)},  // Banco de dados
     {$set:{
-        nomeCompleto:req.body.nome, 
+        nomeCompleto:req.body.nomeCompleto, 
         email:req.body.email}})
     res.redirect("/show")
 })
@@ -58,7 +59,7 @@ iniciar().catch(function(erro){
 
 api.get("/edit/:id", async (req, res)=>{
     const registro = await collection.find({_id: new ObjectId(req.params.id)}).toArray()
-}
+})
 
 
 //deletar um registro

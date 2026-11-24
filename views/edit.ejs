@@ -8,8 +8,8 @@
     </head>
 
     <body>
-        <h2>Editar Registro</h2>
-        <% crud.forEach(function(details) { %>
+        <h2>Editar Cadastro</h2>
+        <% cadastro.forEach(function(details) { %>
             <form action="/edit/<%= details._id %>" method="POST">
                 <input type="text" value="<%= details.nomeCompleto %>" name="nomeCompleto">
                 <input type="e-mail" value="<%= details.email %>" name="email">
