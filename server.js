@@ -44,10 +44,10 @@ async function iniciar(){
     await client.connect()
     const db = client.db("Extracurricular")
     collection = db.collection("usuarios")
-    console.log("Conectou")
+    console.log("Conectou!!")
 
     api.listen(3000, ()=>{
-        console.log("o servirdor está no ar")
+        console.log("Estamos online! birrr")
     })
 }
 

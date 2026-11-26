@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
-<body><div class="container"></div>
-    <h2>Cadastro</h2>
-    <div class="card"></div>
-    <link rel="stylesheet" href="/style.css">
+<body><div class="container">
+    <h2><center>Cadastros</center></h2>
+    <form>
     <table border="1">
         
         <thead>
@@ -29,7 +29,7 @@
                         <a href="/delete/<%= details._id %>">Deletar</a></td>
                 </tr>
                 <% }) %>
-        </tbody>
+        </tbody></form></div>
     </table> <button><a href="/index">Criar Novo Cadastro</a></button>
 </body>
 
