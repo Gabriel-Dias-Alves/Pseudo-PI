@@ -8,17 +8,17 @@
     </head>
 
     <body>
+        <div class="container">
         <h2>Editar Cadastro</h2>
         <% cadastro.forEach(function(details) { %>
             <form action="/edit/<%= details._id %>" method="POST">
                 <input type="text" value="<%= details.nomeCompleto %>" name="nomeCompleto">
                 <input type="e-mail" value="<%= details.email %>" name="email">
                 <br/>
-                <button>
-                    <a href="/show">Todos</a>
-                </button>
                 <button type="submit">Editar</button>
+                <button><a href="/show">Todos os Cadastros</a></button>
             </form>
+        </div>
         <% }) %>
     </body>
 

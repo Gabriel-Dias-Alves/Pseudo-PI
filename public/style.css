@@ -24,16 +24,14 @@ body {
     background-color: rgb(17, 17, 18);
 }
 .container input{
-    display: flex;
-    font-size: large;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
+    font-size:large;
+    border-radius: 8px;
+    padding: 10px;
     border: none;
     outline:none;
 }
 .container button {
-    margin-top: 20px;
+    margin-top: 15px;
     width:50%;
     border-radius: 10px;
     padding: 10px;
@@ -110,7 +108,17 @@ td {
     padding: 14px 15px;
     border-bottom: 1px solid #e5e7eb;
     color: #374151;
+    font-family: Arial, sans-serif;
+    
 }
+tr {
+    padding: 14px 15px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+    font-family: Arial, sans-serif;
+}
+
+
 tbody tr:nth-child(even) {
     background-color: #f8fafc;
 }

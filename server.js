@@ -59,6 +59,7 @@ iniciar().catch(function(erro){
 
 api.get("/edit/:id", async (req, res)=>{
     const registro = await collection.find({_id: new ObjectId(req.params.id)}).toArray()
+    res.render("edit.ejs", {cadastro: registro})
 })
 
 
